@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-
-
 @Injectable()
 export class TaskService {
     allCount;
@@ -46,10 +44,6 @@ export class TaskService {
     updateTaskCount(taskCount) {
         this.taskCount.next({ personal: taskCount.personal, team: taskCount.team });
     }
-
-    // getTaskCountObj(): Observable<any> {
-    //     return this.allCount;
-    // }
 
     getAllTaskCount(): Observable<any> {
         return this.taskCount.asObservable();
