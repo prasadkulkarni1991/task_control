@@ -1,0 +1,87 @@
+<div class="container" @enterLeave>
+
+
+    <div class="form-group row">
+        <div class="col-sm-offset-2 col-sm-10 row">
+            <div class="form-check ">
+                <label *ngFor="let radio of filterRadioBox">
+                    <input class="form-check-input"
+                           (change)="applyFilter(radio.value)"
+                           type="radio"
+                           name="radio.name"
+                           id="allRadio"
+                           value="all">{{radio.label}}</label>
+            </div>
+
+        </div>
+        <div class="col-sm-2 button">
+            <button class="btn btn-primary action-btn-group"
+                    (click)="addTaskModal.openModal()">
+                <span><i class="fa fa-plus"></i></span></button>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Creator Name
+                    <span (click)="sortData('assending','creator')">
+                        <i class="fa fa-arrow-up arrow"
+                           [ngClass]="{primary: !desending}"
+                           aria-hidden="true"></i>
+                    </span>
+                    <span (click)="sortData('desending','creator')">
+                        <i class="fa fa-arrow-down arrow"
+                           [ngClass]="{primary: !assending}"
+                           aria-hidden="true"></i>
+                    </span>
+                </th>
+                <th>Start Date
+                    <span (click)="sortData('assending','start')">
+                        <i class="fa fa-arrow-up arrow"
+                           [ngClass]="{primary: !desending}"
+                           aria-hidden="true"></i>
+                    </span>
+                    <span (click)="sortData('desending','start')">
+                        <i class="fa fa-arrow-down arrow"
+                           [ngClass]="{primary: !assending}"
+                           aria-hidden="true"></i>
+                    </span>
+                </th>
+                <th>End Date
+                    <span (click)="sortData('assending','end')">
+                        <i class="fa fa-arrow-up arrow"
+                           [ngClass]="{primary: !desending}"
+                           aria-hidden="true"></i>
+                    </span>
+                    <span (click)="sortData('desending','end')">
+                        <i class="fa fa-arrow-down arrow"
+                           [ngClass]="{primary: !assending}"
+                           aria-hidden="true"></i>
+                    </span>
+                </th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let task of taskList; let i=index">
+                <td [ngClass]="{'disabled': task.isCompleted}">{{task.creator}}</td>
+                <td [ngClass]="{'disabled': task.isCompleted}">{{task.start}}</td>
+                <td [ngClass]="{'disabled': task.isCompleted}">{{task.end}}</td>
+                <td [ngClass]="{'disabled': task.isCompleted}">{{task.text}}</td>
+                <td [ngClass]="{'disabled': task.isCompleted}">
+                    <input type="checkbox"
+                           (change)="taskCompleted(task,i)"
+                           name="status"
+                           [disabled]="task.isCompleted">
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+
+    <app-add-task (messageEvent)="confirmAdd($event)"
+                  #addTaskModal></app-add-task>
+</div>

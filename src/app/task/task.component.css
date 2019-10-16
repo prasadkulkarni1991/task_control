@@ -1,0 +1,21 @@
+.primary {
+  color: #333;
+  opacity: 1 !important;
+}
+
+.arrow {
+  opacity: 0.4;
+}
+
+.arrow:hover {
+  opacity: 1;
+}
+
+label,
+.button {
+  padding: 10px 20px;
+}
+.disabled {
+  pointer-events: none;
+  background-color: green;
+}

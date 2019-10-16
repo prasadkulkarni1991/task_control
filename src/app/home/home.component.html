@@ -1,0 +1,78 @@
+<div  @enterLeave>
+    <button class="accordion"
+            (click)="globalTask = !globalTask "> Global Task</button>
+    <div class="panel "
+         [ngClass]="{active: globalTask}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Creator Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of taskList" >
+                    <td *ngIf="task.isGlobal">{{task.creator}}</td>
+                    <td *ngIf="task.isGlobal">{{task.start}}</td>
+                    <td *ngIf="task.isGlobal">{{task.end}}</td>
+                    <td *ngIf="task.isGlobal">{{task.text}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <button class="accordion"
+            (click)="personaTask = !personaTask "> Personal Task</button>
+    <div class="panel"
+         [ngClass]="{active: personaTask}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Creator Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of taskList">
+                    <td *ngIf="!task.isGlobal">{{task.creator}}</td>
+                    <td *ngIf="!task.isGlobal">{{task.start}}</td>
+                    <td *ngIf="!task.isGlobal">{{task.end}}</td>
+                    <td *ngIf="!task.isGlobal">{{task.text}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+    <button class="accordion"
+            (click)="leaderTask = !leaderTask "> Leader Task</button>
+    <div class="panel"
+         [ngClass]="{active: leaderTask}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Creator Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let task of taskList">
+                    <td *ngIf="task.isLeader">{{task.creator}}</td>
+                    <td *ngIf="task.isLeader">{{task.start}}</td>
+                    <td *ngIf="task.isLeader">{{task.end}}</td>
+                    <td *ngIf="task.isLeader">{{task.text}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</div>

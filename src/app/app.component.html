@@ -1,20 +1,63 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div>
 
+  <div class="sidenav  col-sm-2">
+
+    <div class="col-sm-2">
+
+      <!-- <label><input type="radio"
+               [routerLink]="['home']"
+               class="form-check-input"
+               name="optradio"
+               ischecked='homeChecked'>Home</label>
+      <label><input type="radio"
+               [routerLink]="['task']"
+               class="form-check-input"
+               name="optradio">Tasks</label> -->
+
+      <!-- <form [formGroup]="sideNavForm">
+        <label><input type="radio"
+                 formControlName="radioValue"
+                 [routerLink]="['home']"
+                 [value]="radioValue"
+                 class="form-check-input"
+                 name="home"
+                 checked>Home</label>
+        <label><input type="radio"
+                 [value]="radioValue"
+                 value=0
+                 formControlName="radioValue"
+                 [routerLink]="['task']"
+                 class="form-check-input"
+                 name="task">Tasks</label>
+      </form> -->
+
+      <label><input type="radio"
+               [checked]="homeRadio"
+               [routerLink]="['home']"
+               class="form-check-input"
+               name="optradio">Home</label>
+      <label><input type="radio"
+               [checked]="taskRadio"
+               [routerLink]="['task']"
+               class="form-check-input"
+               name="optradio">Tasks</label>
+
+    </div>
+
+  </div>
+
+  <div class="col-sm-10 main">
+    <div class="title">
+      <h2 class="col-sm-9">Task Control</h2>
+      <div class="task-count col-sm-3">
+        <p>My Tasks: {{myTask}}</p><span>|</span>
+        <p>Team Tasks: {{teamTask}}</p>
+      </div>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <p-toast  position="bottom-right"></p-toast>
+</div>
