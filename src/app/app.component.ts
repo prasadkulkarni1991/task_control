@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   sideNavForm: FormGroup;
   taskRadio;
   homeRadio;
+  calenderRadio = false;
   teamTask = 0;
   myTask = 0;
   subscription;
@@ -35,6 +36,9 @@ export class AppComponent implements OnInit {
         }
         if (rout.url === '/home' || rout.url === '/') {
           this.homeRadio = true;
+        }
+        if (rout.url === '/calender' || rout.url === '/') {
+          this.calenderRadio = true;
         }
       }
     });

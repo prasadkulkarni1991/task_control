@@ -14,12 +14,15 @@ import {MessagesModule} from 'primeng/messages';
 import { MessageService } from 'primeng/components/common/messageservice';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
+import { FullCalendarModule } from 'ng-fullcalendar';
+import { CalenderComponent } from './calender/calender.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TaskComponent,
-    AddTaskComponent
+    AddTaskComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ButtonModule } from 'primeng/button';
     MessagesModule,
     ToastModule,
     BrowserAnimationsModule,
-    ButtonModule
+    ButtonModule,
+    FullCalendarModule
   ],
   providers: [TaskService,
     MessageService],
